@@ -1,0 +1,24 @@
+.NFT{
+    border-radius: 20px;
+}
+
+.connectWallet {
+    display: flex !important;
+    padding: 8px 12px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 4px !important;
+
+    border-radius: 8px !important;
+    border: 1px solid #8C8C8C !important;
+}
+
+.main-container{
+    display: flex;
+}
+
+@media screen and (min-width: 960px) {
+    .main-container {
+      display: block;
+    }
+  }
