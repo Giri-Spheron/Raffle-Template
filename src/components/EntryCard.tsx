@@ -32,6 +32,7 @@ const EntryCard: React.FC<Props> = ({ walletAddress }) => {
             mr={2}
             backgroundColor={"#0057FF0D"}
             color={"#0A0A0A"}
+            w={"400px"}
           >
             {walletAddress}
           </Text>
