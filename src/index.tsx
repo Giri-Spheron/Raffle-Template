@@ -25,6 +25,10 @@ const customTheme = extendTheme({
   },
 });
 
+// Read environment variables
+const magicLinkApiKey = process.env.REACT_APP_MAGIC_LINK_API_KEY;
+const clientId = process.env.REACT_APP_CLIENT_ID;
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -39,7 +43,7 @@ root.render(
       }),
     ]}
     activeChain={Mumbai}
-    clientId='2e560857c2ad4f8f5e75dbc3e11e3b5d'
+    clientId={clientId}
   >
     <ChakraProvider theme={customTheme}>
       <App />

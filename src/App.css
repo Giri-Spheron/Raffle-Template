@@ -38,49 +38,16 @@
   }
 }
 
+/* @media screen and (max-width: 625px) { */
+  .inputnum {
+   background-color: black !important;
+   
+  }
+/* } */
 
-@font-face {
-  font-family: gilory-bold;
-  src:url(../public/fonts/Gilroy-Bold.ttf);
-}
-
-.gilory-bold{
-  font-family: gilory-bold;
-}
-
-@font-face {
-  font-family: gilory-light;
-  src:url(../public/fonts/Gilroy-Light.ttf);
-}
-
-.gilory-light{
-  font-family: gilory-light;
-}
-
-@font-face {
-  font-family: gilory-regular;
-  src:url(../public/fonts/Gilroy-Regular.ttf);
-}
-
-.gilory-regular{
-  font-family: gilory-regular;
-}
-
-@font-face {
-  font-family: gilory-semi-bold;
-  src:url(../public/fonts/Gilroy-SemiBold.ttf);
-}
-
-.gilory-semi-bold{
-  font-family: gilory-semi-bold;
-}
-
-@font-face {
-  font-family: "gilroy-extra-bold";
-  src:url(../public/fonts/Gilroy-ExtraBold.ttf) format('ttf');
-}
-
-.gilroy-extra-bold{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+@media only screen and (max-width: 533px) {
+  .right-side-container {
+    max-width: 95%;
+  }
 }
 

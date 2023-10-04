@@ -10,7 +10,6 @@ import {
   Heading,
   Input,
   SimpleGrid,
-  Spacer,
   Stack,
   Text,
 } from "@chakra-ui/react";
@@ -45,7 +44,7 @@ export default function HeroSection() {
   const { data: raffleStatus } = useContractRead(contract, "raffleStatus");
   const { data: totalEntries, isLoading: isLoadingTotalEntries } =
     useContractRead(contract, "totalEntries");
-
+  const [isLoading, setIsLoading] = useState(false); // State to track loading
   const [entryAmount, setEntryAmount] = useState(0);
   const entryCostOnSubmit = parseFloat(entryCostInEther) * entryAmount;
 
@@ -58,6 +57,18 @@ export default function HeroSection() {
       setEntryAmount(entryAmount - 1);
     }
   }
+
+  const handleTransactionSubmit = () => {
+    console.log("Transaction submitted");
+    setIsLoading(true); // Set loading to true when transaction is submitted
+  };
+
+  const handleTransactionSuccess = (result: any) => {
+    console.log("Transaction successful");
+    // Reset entryAmount to zero here
+    setEntryAmount(0);
+    setIsLoading(false); // Set loading to false when transaction is successful
+  };
 
   return (
     <Container
@@ -133,6 +144,8 @@ export default function HeroSection() {
                   onChange={(e) => setEntryAmount(parseInt(e.target.value))}
                   textAlign={"center"}
                   mx={1}
+                  minW={"95px"}
+                  padding={{ md: "2px", lg: "5px" }}
                 />
                 <Button onClick={increaseEntryAmount}>+</Button>
               </Flex>
@@ -147,8 +160,12 @@ export default function HeroSection() {
                       ),
                     })
                   }
+                  onSubmit={handleTransactionSubmit}
+                  onSuccess={handleTransactionSuccess}
                   isDisabled={entryAmount === 0 || !raffleStatus}
-                >{`Buy Ticket(s)`}</Web3Button>
+                >
+                  {isLoading ? "Loading..." : "Buy Ticket(s)"}
+                </Web3Button>
               </Box>
             </Flex>
           ) : (

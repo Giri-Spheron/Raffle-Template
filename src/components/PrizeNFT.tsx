@@ -10,16 +10,6 @@ import { RAFFLE_CONTRACT_ADDRESS } from "../const/addresses";
 
 import styles from "./styles.module.css";
 
-import { extendTheme } from "@chakra-ui/react";
-
-const breakpoints = {
-  base: "0px",
-  md: "672px",
-  "2xl": "1536px",
-};
-
-const theme = extendTheme({ breakpoints });
-
 export default function PrizeNFT() {
   const { contract: raffleContract } = useContract(RAFFLE_CONTRACT_ADDRESS);
 

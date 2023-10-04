@@ -8,17 +8,6 @@ import { darkTheme } from "@thirdweb-dev/react";
 import { RAFFLE_CONTRACT_ADDRESS } from "../const/addresses";
 import { Link } from "react-router-dom";
 
-import { extendTheme } from "@chakra-ui/react";
-
-const breakpoints = {
-  base: "0px",
-  sm: "360px",
-  md: "768px",
-  lg: "960px",
-  xl: "1200px",
-  "2xl": "1536px",
-};
-
 const customDarkTheme = darkTheme({
   fontFamily: "Inter, sans-serif",
   colors: {
@@ -34,8 +23,6 @@ const customDarkTheme = darkTheme({
   },
 });
 
-const theme = extendTheme({ breakpoints });
-
 export default function Navbar() {
   const address = useAddress();
 
@@ -49,12 +36,12 @@ export default function Navbar() {
   return (
     <Container maxW={"1440px"} py={6} borderBottom='0.1px solid #999999'>
       <Flex
-        flexDirection={"row"}
+        flexDirection={{ base: "column", md: "row" }} // Change the flexDirection based on screen width
         justifyContent={"space-between"}
-        alignItems={"center"}
+        alignItems={{ base: "center", md: "center" }} // You can adjust this alignment as needed
       >
         <Link to='/'>
-          <Text fontSize={{ md: "md", sm: "sm" }} fontWeight={"bold"}>
+          <Text>
             <svg
               width='229'
               height='42'
