@@ -152,7 +152,9 @@ export default function HeroSection() {
               </Box>
             </Flex>
           ) : (
-            <Text fontSize={"xl"}>Connect wallet to buy entries</Text>
+            <Text fontSize={"xl"} fontFamily={"Gilroy-Regular"} color='red'>
+              Connect wallet to buy entries !
+            </Text>
           )}
           {!isLoadingTotalEntries && (
             <Card marginBottom='0.6em'>

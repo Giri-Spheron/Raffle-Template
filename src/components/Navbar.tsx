@@ -3,7 +3,7 @@ import { Container, Text, Flex } from "@chakra-ui/react";
 import { useAddress, useContract, useContractRead } from "@thirdweb-dev/react";
 
 import { ConnectWallet } from "@thirdweb-dev/react";
-import { darkTheme} from "@thirdweb-dev/react";
+import { darkTheme } from "@thirdweb-dev/react";
 
 import { RAFFLE_CONTRACT_ADDRESS } from "../const/addresses";
 import { Link } from "react-router-dom";
@@ -47,7 +47,7 @@ export default function Navbar() {
   );
 
   return (
-    <Container maxW={"1440px"} py={8}>
+    <Container maxW={"1440px"} py={6} borderBottom='0.1px solid #999999'>
       <Flex
         flexDirection={"row"}
         justifyContent={"space-between"}
