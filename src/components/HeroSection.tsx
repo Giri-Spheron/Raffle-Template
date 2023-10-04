@@ -147,7 +147,7 @@ export default function HeroSection() {
                       ),
                     })
                   }
-                  isDisabled={!raffleStatus}
+                  isDisabled={entryAmount === 0 || !raffleStatus}
                 >{`Buy Ticket(s)`}</Web3Button>
               </Box>
             </Flex>
