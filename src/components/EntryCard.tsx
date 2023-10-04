@@ -26,6 +26,7 @@ const EntryCard: React.FC<Props> = ({ walletAddress }) => {
           justifyContent={"space-between"}
         >
           <Text
+            fontFamily='Gilroy-Regular'
             borderRadius={"8px"}
             p={2}
             mr={2}
@@ -35,7 +36,7 @@ const EntryCard: React.FC<Props> = ({ walletAddress }) => {
             {walletAddress}
           </Text>
           <Spacer />
-          <Text style={{ marginRight: "1em" }}>
+          <Text fontFamily='Gilroy-Regular' style={{ marginRight: "1em" }}>
             Entries: {numberOfEntries.toNumber()}
           </Text>
         </Flex>

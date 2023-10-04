@@ -2,7 +2,7 @@
     border-radius: 20px;
 }
 
-.connectWallet {
+.ConnectWallet {
     display: flex !important;
     padding: 8px 12px !important;
     justify-content: center !important;
@@ -17,8 +17,24 @@
     display: flex;
 }
 
+.BuyButton{
+    display: inline-flex !important;
+padding: 1.1em 3.3em !important;
+justify-content: center !important;
+align-items: center !important;
+/* check */
+gap: 12em !important; 
+/*  */
+border-radius: 8px !important;
+background: var(--primary-1, #1973E8) !important;
+color: white !important;
+}
+
+
+
 @media screen and (min-width: 960px) {
     .main-container {
       display: block;
     }
   }
+

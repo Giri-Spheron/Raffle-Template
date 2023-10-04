@@ -16,7 +16,12 @@ export default function RaffleStatus({ raffleStatus }: Props) {
       border={"1px solid"}
       borderColor={borderColor}
     >
-      <Text fontWeight={"bold"} color={textColor} fontSize={"sm"}>
+      <Text
+        fontWeight={"bold"}
+        fontFamily='Gilroy-ExtraBold'
+        color={textColor}
+        fontSize={"sm"}
+      >
         Raffle Status: {raffleStatus ? "Open" : "Closed"}
       </Text>
     </Card>

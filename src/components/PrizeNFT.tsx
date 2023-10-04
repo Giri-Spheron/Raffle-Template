@@ -43,7 +43,12 @@ export default function PrizeNFT() {
 
   return (
     <Card p={"3%"} style={{ marginBottom: "5em" }}>
-      <Heading style={{ marginBottom: "0.314159em" }}>Prize NFT</Heading>
+      <Heading
+        fontFamily='Gilroy-ExtraBold'
+        style={{ marginBottom: "0.314159em" }}
+      >
+        Prize NFT
+      </Heading>
       {!isLoadingPrizeNFTContractMetadata && !isLoadingNFT ? (
         <Stack spacing={"20px"} textAlign={"center"}>
           <Box bg='#F8F8F8' p={3} borderRadius='2xl'>
@@ -55,10 +60,16 @@ export default function PrizeNFT() {
             />
           </Box>
           <Box>
-            <Text fontSize={"xl"} fontWeight={"bold"}>
+            <Text
+              fontFamily='Gilroy-ExtraBold'
+              fontSize={"xl"}
+              fontWeight={"bold"}
+            >
               {prizeNFTContractMetadata?.name}
             </Text>
-            <Text fontWeight={"normal"}>{nft?.metadata.name}</Text>
+            <Text fontFamily='Gilroy-ExtraBold' fontWeight={"normal"}>
+              {nft?.metadata.name}
+            </Text>
           </Box>
         </Stack>
       ) : (

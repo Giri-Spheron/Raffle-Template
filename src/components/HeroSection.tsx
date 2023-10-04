@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Card,
+  CardBody,
   CardHeader,
   Container,
   Flex,
@@ -28,7 +29,7 @@ import { useState } from "react";
 import PrizeNFT from "./PrizeNFT";
 import CurrentEntries from "./CurrentEntries";
 
-import "./styles.module.css";
+import styles from "./styles.module.css";
 
 export default function HeroSection() {
   const address = useAddress();
@@ -67,7 +68,7 @@ export default function HeroSection() {
       alignItems={{ base: "center", md: "flex-start" }}
     >
       <SimpleGrid
-        style={{ flex: "60%" }}
+        style={{ flex: "80%" }}
         minChildWidth={"300px"}
         spacing={10}
         mx='auto'
@@ -84,7 +85,7 @@ export default function HeroSection() {
         justifyContent={"center"}
         flexDirection={"column"}
         alignItems={"center"}
-        p={"3%"}
+        p={"1%"}
       >
         <Stack spacing={10}>
           <Box>
@@ -98,22 +99,27 @@ export default function HeroSection() {
               bg='black' // Set the background color to black
               color='white' // Set the font color to white
               textTransform='none'
+              fontFamily='Gilroy-ExtraBold'
             >
               Raffle App
             </Badge>
 
-            <Text fontSize={"4xl"} className='gilroy-extra-bold'>
+            <Text
+              fontFamily='Gilroy-ExtraBold'
+              fontSize={"4xl"}
+              className='gilroy-extra-bold'
+            >
               Buy a ticket to win the NFT Prize
             </Text>
           </Box>
-          <Text fontSize={"xl"} className='gilory-light'>
+          <Text fontSize={"xl"} fontFamily='Gilroy-Regular'>
             Buy entries for a chance to win the NFT! Winner will be selected and
             transferred the NFT. The more entries the higher chance you have of
             winning the prize.
           </Text>
           <RaffleStatus raffleStatus={raffleStatus} />
           {!isLoadingEntryCost && (
-            <Text fontSize={"2xl"} fontWeight={"bold"}>
+            <Text fontFamily='Gilroy-ExtraBold' fontSize={"2xl"}>
               Cost per ticket: {entryCostInEther} MATIC
             </Text>
           )}
@@ -132,6 +138,7 @@ export default function HeroSection() {
               </Flex>
               <Box mt={7}>
                 <Web3Button
+                  className={styles.BuyButton}
                   contractAddress={RAFFLE_CONTRACT_ADDRESS}
                   action={(contract) =>
                     contract.call("buyEntry", [entryAmount], {
@@ -148,9 +155,15 @@ export default function HeroSection() {
             <Text fontSize={"xl"}>Connect wallet to buy entries</Text>
           )}
           {!isLoadingTotalEntries && (
-            <Text fontSize={"xl"} style={{ marginBottom: "1em" }}>
-              Total Entries: {totalEntries.toString()}
-            </Text>
+            <Card marginBottom='0.6em'>
+              <CardBody
+                fontFamily='Gilroy-ExtraBold'
+                fontSize='2xl'
+                fontWeight={"semibold"}
+              >
+                Total Entries: {totalEntries.toString()}
+              </CardBody>
+            </Card>
           )}
         </Stack>
         <Card width='100%'>
@@ -162,7 +175,10 @@ export default function HeroSection() {
               paddingTop: "1em",
             }}
           >
-            <Heading size='md'> Current raffle Entries:</Heading>
+            <Heading fontFamily='Gilroy-SemiBold' fontSize='xl'>
+              {" "}
+              Current raffle Entries:
+            </Heading>
           </CardHeader>
           <CurrentEntries />
         </Card>

@@ -17,7 +17,7 @@ export default function AdminRaffleWinnerCard() {
       <Text fontWeight={"bold"} mb={4} fontSize={"xl"}>
         Raffle Winner
       </Text>
-      {prizeNftContractAddress ==
+      {prizeNftContractAddress ===
       "0x0000000000000000000000000000000000000000" ? (
         <Box>
           <Text fontSize={"xl"} fontWeight={"bold"}>

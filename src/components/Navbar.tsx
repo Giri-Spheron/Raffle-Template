@@ -1,11 +1,9 @@
-import "./styles.module.css";
-import { Container, Flex, Text } from "@chakra-ui/react";
-import {
-  ConnectWallet,
-  useAddress,
-  useContract,
-  useContractRead,
-} from "@thirdweb-dev/react";
+import styles from "./styles.module.css";
+import { Container, Text, Flex } from "@chakra-ui/react";
+import { useAddress, useContract, useContractRead } from "@thirdweb-dev/react";
+
+import { ConnectWallet } from "@thirdweb-dev/react";
+import { darkTheme} from "@thirdweb-dev/react";
 
 import { RAFFLE_CONTRACT_ADDRESS } from "../const/addresses";
 import { Link } from "react-router-dom";
@@ -21,7 +19,23 @@ const breakpoints = {
   "2xl": "1536px",
 };
 
+const customDarkTheme = darkTheme({
+  fontFamily: "Inter, sans-serif",
+  colors: {
+    modalBg: "#000000",
+    accentText: "#66ccff",
+    primaryButtonText: "#030B1C",
+    primaryButtonBg: "#D7CCC8",
+    accentButtonText: "#25258e",
+    secondaryButtonBg: "#1d1e25",
+    connectedButtonBg: "#1b1b1d",
+    secondaryButtonHoverBg: "#506de2",
+    connectedButtonBgHover: "#4058dd",
+  },
+});
+
 const theme = extendTheme({ breakpoints });
+
 export default function Navbar() {
   const address = useAddress();
 
@@ -100,7 +114,23 @@ export default function Navbar() {
               </Text>
             </Link>
           )}
-          <ConnectWallet className='connectWallet' />
+          <ConnectWallet
+            theme={customDarkTheme}
+            modalTitle={"Select Method"}
+            switchToActiveChain={true}
+            modalSize={"wide"}
+            welcomeScreen={{
+              title: "Spheron Raffle",
+              subtitle: "Your gateway to decentralized web",
+              img: {
+                src: "https://svgshare.com/i/yBy.svg",
+                width: 150,
+                height: 150,
+              },
+            }}
+            modalTitleIconUrl={""}
+            className={styles.ConnectWallet}
+          />
         </Flex>
       </Flex>
     </Container>
